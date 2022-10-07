@@ -46,9 +46,9 @@ pipeline {
     stage('SonarQube Scan') {
       steps {
         sh """mvn sonar:sonar \
-            -Dsonar.projectKey=CICD-Project \
-            -Dsonar.host.url=http://172.31.86.190:9000 \
-            -Dsonar.login=1580f2f071aaaf51fb883fd4429dc0179ee56569"""
+            -Dsonar.projectKey=JavaWebApp \
+            -Dsonar.host.url=http://18.237.54.217:9000 \
+            -Dsonar.login=1bce9e4ddffb55e7e7e38c656d2d7235300572b8"""
       }
     }
     stage('Upload to Artifactory') {
@@ -101,4 +101,4 @@ pipeline {
   }
 }
 
-//slackSend channel: '#mbandi-cloudformation-cicd', message: "Please find the pipeline status of the following ${env.JOB_NAME ${env.BUILD_NUMBER} ${env.BUILD_URL}"
+//slackSend channel: '#dapo-jenkins-cicd-pipeline-alerts', message: "Please find the pipeline status of the following ${env.JOB_NAME ${env.BUILD_NUMBER} ${env.BUILD_URL}"
